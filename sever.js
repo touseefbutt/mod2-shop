@@ -1,7 +1,21 @@
+require("dotenv").config();
 const express = require("express");
-const res = require("express/lib/response");
 const app = express();
 const port = 2700;
+const mongoose = require("mongoose");
+const shopModel = require("./model/shopmodel");
+const overRide = require('method-override');
+const multer = require ('multer') 
+
+
+//====== Create DB Connection =======
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser:true,
+    useUnifiedTopology: true
+})
+mongoose.connection.once('open', () =>
+    console.log('Database is connected')
+);
 
 
 //middleware is using here
@@ -19,13 +33,18 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 //======== route to access the views =====
 //rendering registration page 
-app.get('/register', (req,res) => {
-    res.render('register')
+
+//rendering shop page
+app.get("/shop/product", (req,res)=>{
+    res.render('product')
 })
-//rndering shop page
 app.get("/shop", (req,res)=>{
     res.render('shop')
 })
+app.get("/shop/register", (req,res)=>{
+    res.render('register')
+})
+
 
 
 console.log("testing");
