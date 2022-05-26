@@ -5,12 +5,12 @@ class product extends React.Component {
     render() {
         return(
             <Layout title="Product Page">
-                <h1 class="text-center">Product Page</h1>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
+                <h1 className="text-center">Product Page</h1>
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
                         </div>
-                        <div class="col">
+                        <div className="col">
                         <div class="card img-thumbnail rounded">
                                 <img src="/bgshop.jpg" class="card-img-top " alt="..." />
                                 <div class="card-body text-center">

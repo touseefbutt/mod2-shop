@@ -4,8 +4,10 @@ const app = express();
 const port = 2700;
 const mongoose = require("mongoose");
 const shopModel = require("./model/shopmodel");
+const bodyparser = require("body-parser");
 const overRide = require('method-override');
 const multer = require ('multer') 
+const {fsGrid} = require("multer-gridfs-storage");
 
 
 //====== Create DB Connection =======
@@ -20,10 +22,12 @@ mongoose.connection.once('open', () =>
 
 //middleware is using here
 app.use(express.urlencoded({extended:false}));
-app.use(express.static("pic"))
+app.use(express.static("public"));
+app.use(express.json());
+app.use(overRide('_method'))
 app.use((req, res, next) =>{
     console.log("Code working Fine")
-        next();
+    next();
 })
 
 
@@ -33,6 +37,16 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 //======== route to access the views =====
 //rendering registration page 
+
+//route to register product
+app.post('/shop', (req,res) =>{
+    shopModel.create(req.body, (err, productCreated)=>{
+        // res.send(productCreated);
+    })
+    res.redirect('/shop');
+})
+
+
 
 //rendering shop page
 app.get("/shop/product", (req,res)=>{
@@ -47,7 +61,7 @@ app.get("/shop/register", (req,res)=>{
 
 
 
-console.log("testing");
+// console.log("testing");
 
 //calling the browser port here
 app.listen(port, ()=> console.log(`listening the port ${port}`))
