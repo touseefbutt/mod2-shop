@@ -32,10 +32,6 @@ class register extends React.Component {
                                 <div class="mb-3">
                                     <button type="submit" className="btn btn-outline-secondary form-control" value = "Register Product">Edit Product</button>
                                 </div>
-                                <div class="mb-3">
-                                    <button type="submit" className="btn btn-outline-danger form-control" value = "Register Product">Delete Product</button>
-                                </div>
-                                
                             </form>
                         </div>
                         <div className="col">
