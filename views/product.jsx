@@ -22,7 +22,6 @@ class product extends React.Component {
 
                                     <form action={`/shop/product/${product._id}/buyNow?_method=PUT`} method="POST">
                                         <input type="submit" class= {product.pstock <= 0 ? "btn btn-outline-danger disabled" : "btn btn-outline-primary"} value="Buy Now"/>
-                                    {/* <a href="/shop" >Buy Now</a> */}
                                     </form>
                                     <div className="mb-3">
                                         <button type="submit" className="btn btn-secondary mt-4" value="Edit Product"><a href={`/shop/product/${product._id}/edit`} className="text-light text-decoration-none">Edit Product</a></button>

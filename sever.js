@@ -37,7 +37,7 @@ app.engine('jsx', require('express-react-views').createEngine());
 //======== route to access the views =====
 //Index page Route   
 app.get('/shop', (req, res) => {
-    //Query Model to return all Fruits
+    //Query Model to return all products
     shopModel.find({}, (err, allProduct)=> {
         res.render('shop',{
             shop: allProduct
@@ -64,7 +64,7 @@ app.delete('/shop/product/:id', (req, res)=>{
 
 //Update Route to update db Value from edit page
 app.put('/shop/product/:id',(req,res)=>{
-    shopModel.findByIdAndUpdate(req.params.id, req.body,{new:true} ,(err, updateFruit)=>{
+    shopModel.findByIdAndUpdate(req.params.id, req.body,{new:true} ,(err, updateProduct)=>{
         if(!err){
             res.status(200).redirect('/shop')
         }else{
