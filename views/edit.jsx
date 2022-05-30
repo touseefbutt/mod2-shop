@@ -26,6 +26,10 @@ class Edit extends React.Component{
                                 <label htmlFor="pStock" className="form-label text-secondary">Product Stock</label>
                                 <input type="text" class="form-control border border-secondary shadow-sm" id="pStock" name="pstock" defaultValue={editProduct.pstock} />
                             </div>
+                            <div className="mb-3">
+                                <label htmlFor="pStock" className="form-label text-secondary">Product Image</label>
+                                <input type="text" class="form-control border border-secondary shadow-sm" id="pStock" name="pImage" defaultValue={editProduct.pImage} />
+                            </div>
                             <div class="mb-3">
                                 <input type="submit" className="btn btn-outline-info form-control" value = "Update Product" />
                             </div>

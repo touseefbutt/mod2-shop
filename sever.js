@@ -5,7 +5,6 @@ const port = 2700;
 const mongoose = require("mongoose");
 const shopModel = require("./model/shopmodel");
 const overRide = require('method-override');
-const res = require('express/lib/response')
 
 
 
@@ -96,9 +95,7 @@ app.get("/shop/product/:id", (req, res)=>{
 
 
 //rendering shop page
-app.get("/shop/edit", (req,res)=>{
-    res.render('edit')
-})
+// 
 app.get("/shop/register", (req,res)=>{
     res.render('register')
 })

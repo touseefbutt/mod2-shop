@@ -7,6 +7,11 @@ class shop extends React.Component {
         return (
             <Layout title="Shop Page">
                 <h1 className="text-center mx-3">Floral Shop</h1>
+                <div className="container mt-5">
+                    <div className="row">
+                        <button type="button" className="btn btn-light mx-4 text-dark"><a href="/shop/register" className="text-decoration-none text-dark">Register New Product</a></button>
+                    </div>
+                </div>
                 <div className="container">
                     <div className="row">
                         <ul className="d-inline-flex p-2 flex-wrap">
@@ -14,7 +19,7 @@ class shop extends React.Component {
                                 shop.map(myshop => {
                                     return (
                                         <li className="card img-thumbnail mx-2 mt-2" key={myshop._id}>
-                                            <img src="/pic/shopImg.jpg" className="card-img-top " alt="Flowers Image" />
+                                            <a href={`/shop/${myshop._id}`}><img src={myshop.pImage} className="card-img-top " alt="Flowers Image" /></a>
                                             <div className="card-body text-center">
                                                 <h5 className="card-title">{myshop.pname}</h5>
                                                 <p className="card-text">Price <span className="fw-light">${myshop.pprice}</span></p>
@@ -26,11 +31,6 @@ class shop extends React.Component {
                                 })
                             }
                         </ul>
-                    </div>
-                </div>
-                <div className="container mt-5">
-                    <div className="row">
-                        <button type="button" className="btn btn-light mx-4 text-dark"><a href="/shop/register">Register New Product</a></button>
                     </div>
                 </div>
             </Layout>

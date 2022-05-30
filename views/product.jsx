@@ -13,7 +13,8 @@ class product extends React.Component {
                         </div>
                         <div className="col">
                             <div className="card img-thumbnail rounded">
-                                <img src="/pic/shopImg.jpg" className="card-img-top " alt="Flower Image" />
+                                {/* <img src="/pic/shopImg.jpg" className="card-img-top " alt="Flower Image" /> */}
+                                <a href={`/shop/${product._id}`}><img src={product.pImage} className="card-img-top " alt="Flowers Image" /></a>
                                 <div className="card-body text-center">
                                     <h5 className="card-title">{product.pname}</h5>
                                     <p className="card-text">Price <span className="fw-light">${product.pprice}</span></p>

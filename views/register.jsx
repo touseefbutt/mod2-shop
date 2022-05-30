@@ -27,6 +27,10 @@ class register extends React.Component {
                                     <input type="text" class="form-control border border-secondary shadow-sm" id="pStock" name="pstock" placeholder="Enter Product Stock" />
                                 </div>
                                 <div className="mb-3">
+                                    <label htmlFor="pImage" className="form-label text-secondary">Product Stock</label>
+                                    <input type="text" class="form-control border border-secondary shadow-sm" id="pImage" name="pImage" placeholder="Enter Image URL" />
+                                </div>
+                                <div className="mb-3">
                                     <button type="submit" className="btn btn-outline-success form-control" value = "Register Product">Register Product</button>
                                 </div>
                             </form>
