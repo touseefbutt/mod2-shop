@@ -30,7 +30,7 @@ class shop extends React.Component {
                 </div>
                 <div className="container mt-5">
                     <div className="row">
-                        <button type="button" className="btn btn-light mx-4"><a href="/shop/register">Register New Product</a></button>
+                        <button type="button" className="btn btn-light mx-4 text-dark"><a href="/shop/register">Register New Product</a></button>
                     </div>
                 </div>
             </Layout>

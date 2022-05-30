@@ -10,7 +10,7 @@ class register extends React.Component {
                         <div className="col">
                         </div>
                         <div className="col text-bg-light card">
-                            <h3 className="text-uppercase text-secondary">Product Registration Page</h3>
+                            <h3 className="text-uppercase text-secondary text-center">Product Registration Page</h3>
                             <form action="/shop" method="POST">
                                 <div className="mb-3">
                                     <label htmlFor="pName" className="form-label text-secondary">Product Name</label>
@@ -28,9 +28,6 @@ class register extends React.Component {
                                 </div>
                                 <div className="mb-3">
                                     <button type="submit" className="btn btn-outline-success form-control" value = "Register Product">Register Product</button>
-                                </div>
-                                <div class="mb-3">
-                                    <button type="submit" className="btn btn-outline-secondary form-control" value = "Register Product">Edit Product</button>
                                 </div>
                             </form>
                         </div>

@@ -5,6 +5,8 @@ const port = 2700;
 const mongoose = require("mongoose");
 const shopModel = require("./model/shopmodel");
 const overRide = require('method-override');
+const res = require('express/lib/response')
+
 
 
 
@@ -50,7 +52,19 @@ app.post('/shop', (req,res) =>{
     })
     res.redirect('/shop');
 })
+//Delete Route to Delete Product
+app.delete('/shop/product/:id', (req, res)=>{
+    shopModel.findByIdAndDelete(req.params.id, (err)=>{
+        if (!err){
+            res.status(200).redirect('/shop');
+        }else{
+            res.status(400).json(err);
+        }
+    })
+})
 
+//Edit Route
+// app.post()
 
 //route to check product
 app.get("/shop/product/:id", (req, res)=>{
@@ -64,9 +78,9 @@ app.get("/shop/product/:id", (req, res)=>{
 app.get("/shop/product", (req,res)=>{
     res.render('product')
 })
-// app.get("/shop", (req,res)=>{
-//     res.render('Shop')
-// })
+app.get("/edit", (req,res)=>{
+    res.render('edit')
+})
 app.get("/shop/register", (req,res)=>{
     res.render('register')
 })
