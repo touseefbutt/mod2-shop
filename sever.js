@@ -4,10 +4,8 @@ const app = express();
 const port = 2700;
 const mongoose = require("mongoose");
 const shopModel = require("./model/shopmodel");
-const bodyparser = require("body-parser");
 const overRide = require('method-override');
-const multer = require ('multer') 
-const {fsGrid} = require("multer-gridfs-storage");
+
 
 
 //====== Create DB Connection =======
@@ -36,9 +34,16 @@ app.set("view engine","jsx");
 app.engine('jsx', require('express-react-views').createEngine());
 
 //======== route to access the views =====
-//rendering registration page 
-
-//route to register product
+//Index page Route   
+app.get('/shop', (req, res) => {
+    //Query Model to return all Fruits
+    shopModel.find({}, (err, allProduct)=> {
+        res.render('shop',{
+            shop: allProduct
+        })
+    });
+});
+//route to register product 
 app.post('/shop', (req,res) =>{
     shopModel.create(req.body, (err, productCreated)=>{
         // res.send(productCreated);
@@ -47,14 +52,21 @@ app.post('/shop', (req,res) =>{
 })
 
 
+//route to check product
+app.get("/shop/product/:id", (req, res)=>{
+    shopModel.findById(req.params.id,(err, productByID)=>{
+        res.render('product', {product:productByID})
+    });
+});
+
 
 //rendering shop page
 app.get("/shop/product", (req,res)=>{
     res.render('product')
 })
-app.get("/shop", (req,res)=>{
-    res.render('shop')
-})
+// app.get("/shop", (req,res)=>{
+//     res.render('Shop')
+// })
 app.get("/shop/register", (req,res)=>{
     res.render('register')
 })

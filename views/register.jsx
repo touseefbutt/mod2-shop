@@ -15,16 +15,16 @@ class register extends React.Component {
                                 <div className="mb-3">
                                     <label htmlFor="pName" className="form-label text-secondary">Product Name</label>
                                     <input type="text" class="form-control border border-secondary shadow-sm" id="pName"
-                                        name="pName" placeholder="Enter Product Name" />
+                                        name="pname" placeholder="Enter Product Name" />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="pPrice" className="form-label text-secondary">Product Price</label>
                                     <input type="text" class="form-control border border-secondary shadow-sm" id="pPrice"
-                                        name="pPrice" placeholder="Enter Product Price" />
+                                        name="pprice" placeholder="Enter Product Price" />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="pStock" className="form-label text-secondary">Product Stock</label>
-                                    <input type="text" class="form-control border border-secondary shadow-sm" id="pStock" name="pStock" placeholder="Enter Product Stock" />
+                                    <input type="text" class="form-control border border-secondary shadow-sm" id="pStock" name="pstock" placeholder="Enter Product Stock" />
                                 </div>
                                 <div className="mb-3">
                                     <button type="submit" className="btn btn-outline-success form-control" value = "Register Product">Register Product</button>
