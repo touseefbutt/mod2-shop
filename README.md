@@ -1,4 +1,13 @@
 # Shop-CRUD Functionality
+
+>> tried to code my shop crud functionality with bootstra libraries. Go a head fork me and download my code files. This code is well written and tested. To test this code install dotenv and nodemon dependencies.
+>> After that create you Mongo DB and connect it. After Mongoose connection run this code on your browser.
+
+>> command to install dependencies after download
+> npm i dotenv nodemon
+>> copy paste this command in the terminal/command prompt to install dotenv and nodemon 
+
+
 >> functionality table mentioned below
 
 
