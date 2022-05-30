@@ -76,13 +76,21 @@ app.put('/shop/product/:id',(req,res)=>{
 
 
 //Edit Route to read DB Data to Form
-app.get('/shop/product/:id/edit', (req, res)=>{
+app.get('/shop/product/:id/edit', (req, res) =>{
     shopModel.findById(req.params.id, (err, editProductById)=> {
         if(!err){
             res.render('edit', {editProduct:editProductById})
         }else{
             res.status(400).json(err);
         }
+    })
+})
+
+//route to change Quantity
+app.put('/shop/product/:id/buyNow', async(req, res)=> {
+    const foundproduct = await shopModel.findById(req.params.id);
+    shopModel.findByIdAndUpdate(req.params.id, {pstock: foundproduct.pstock - 1}, {new:true}, (err, updateproduct) => {
+        res.redirect(`/shop/product/${req.params.id}`)
     })
 })
 

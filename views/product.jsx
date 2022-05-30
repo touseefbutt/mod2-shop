@@ -18,15 +18,22 @@ class product extends React.Component {
                                 <div className="card-body text-center">
                                     <h5 className="card-title">{product.pname}</h5>
                                     <p className="card-text">Price <span className="fw-light">${product.pprice}</span></p>
-                                    <p className="card-text">Quantity:<span className="fw-light"> {product.pstock} </span></p>
-                                    <a href="/shop" className="btn btn-outline-primary">Buy Now</a>
-                                    <div class="mb-3">
+                                    <p className="card-text">Quantity:<span className="fw-light"> {product.pstock === 0 ? `${product.pname} OUT OF STOCK` : `${product.pstock}`} </span></p>
+
+                                    <form action={`/shop/product/${product._id}/buyNow?_method=PUT`} method="POST">
+                                        <input type="submit" class= {product.pstock <= 0 ? "btn btn-outline-danger disabled" : "btn btn-outline-primary"} value="Buy Now"/>
+                                    {/* <a href="/shop" >Buy Now</a> */}
+                                    </form>
+                                    <div className="mb-3">
+                                        <button type="submit" className="btn btn-secondary mt-4" value="Edit Product"><a href={`/shop/product/${product._id}/edit`} className="text-light text-decoration-none">Edit Product</a></button>
+                                    </div>
+                                    <div className="mb-3">
                                         <form action={`/shop/product/${product._id}?_method=DELETE`} method="POST">
                                             <input type="submit" className="btn btn-danger mt-4 text-light text-decoration-none" value="Delete Product" />
                                         </form>
                                     </div>
-                                    <div class="mb-3">
-                                        <button type="submit" className="btn btn-secondary mt-4" value="Edit Product"><a href={`/shop/product/${product._id}/edit`} className="text-light text-decoration-none">Edit This Product</a></button>
+                                    <div className="mb-3">
+                                    <a href="/shop" class="link-primary text-decoration-none">Continue Shopping</a>
                                     </div>
                                 </div>
                             </div>
