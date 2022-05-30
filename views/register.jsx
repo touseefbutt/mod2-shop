@@ -38,7 +38,6 @@ class register extends React.Component {
             </Layout>
         )
     }
-
 }
 
 module.exports = register;

@@ -63,8 +63,29 @@ app.delete('/shop/product/:id', (req, res)=>{
     })
 })
 
-//Edit Route
-// app.post()
+//Update Route to update db Value from edit page
+app.put('/shop/product/:id',(req,res)=>{
+    shopModel.findByIdAndUpdate(req.params.id, req.body,{new:true} ,(err, updateFruit)=>{
+        if(!err){
+            res.status(200).redirect('/shop')
+        }else{
+            res.status(400).json(err)
+        }
+    })
+})
+
+
+
+//Edit Route to read DB Data to Form
+app.get('/shop/product/:id/edit', (req, res)=>{
+    shopModel.findById(req.params.id, (err, editProductById)=> {
+        if(!err){
+            res.render('edit', {editProduct:editProductById})
+        }else{
+            res.status(400).json(err);
+        }
+    })
+})
 
 //route to check product
 app.get("/shop/product/:id", (req, res)=>{
@@ -75,10 +96,7 @@ app.get("/shop/product/:id", (req, res)=>{
 
 
 //rendering shop page
-app.get("/shop/product", (req,res)=>{
-    res.render('product')
-})
-app.get("/edit", (req,res)=>{
+app.get("/shop/edit", (req,res)=>{
     res.render('edit')
 })
 app.get("/shop/register", (req,res)=>{
