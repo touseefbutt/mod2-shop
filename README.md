@@ -4,7 +4,10 @@
 >> After that create you Mongo DB and connect it. After Mongoose connection run this code on your browser.
 
 >> command to install dependencies after download
+
 > npm i dotenv nodemon
+
+
 >> copy paste this command in the terminal/command prompt to install dotenv and nodemon 
 
 
